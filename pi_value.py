@@ -43,14 +43,23 @@ while (j<num_of_exp):
 	
 	j += 1
 
-# error in measurement = sigma(meanpi) = sqrt [(p*(1-p)/N] where p= pi(actual)/4
-a = math.pi*(4-math.pi)/16
-
-# mperror => mean pi error           
-mperror = math.sqrt(a/N)        
-
-print ('The error in measurement is : ', mperror)
-
+meansum = 0.0
+for x in meanpi:
+	meansum = meansum + x
+mean = meansum/num_of_exp
+print ("Mean is "+str(mean))
+# Find the sample width of the points
+mperror=0.0
+for x in meanpi:
+	mperror=mperror + (x-mean)*(x-mean)
+# mperror => mean pi error =standard deviation.          
+mperror = math.sqrt(mperror/(N-1))
+# theoretical error in measurement = sigma(meanpi) = sqrt [(p*(1-p)/N] where p= pi(actual)/4
+#a = p*(1-p)
+a=(math.pi/4)*(1-(math.pi/4))
+tperror = math.sqrt((a/N))
+print ('Theoretical error is ' + str(tperror))
+print ('The error in measurement is : '+str(mperror))
 f.close()
 
 # histogram with : mean pi values, no.of bins, type and width of each bar - is plotted
