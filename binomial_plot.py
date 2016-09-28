@@ -28,8 +28,8 @@ while (i<n+1):
 	y.append(nCr(n,i)*(p**i)*((1-p)**(n-i)))  
 	i += 1 
 
-plt.plot(x,y)
-
+plt.plot(x,y,'o')
+plt.vlines(x,[0],y)
 plt.title('B{'+str(n)+','+str(p)+'} (x)')
 plt.xlabel('x')
 plt.ylabel('B(x)')
