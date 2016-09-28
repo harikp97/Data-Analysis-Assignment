@@ -23,7 +23,8 @@ while (i<21):
 	y.append(a)
 	i += 1
 
-plt.plot(x,y)
+plt.plot(x,y,'o')
+plt.vlines(x,[0],y)
 plt.title('Poisson distribution P{'+str(l)+'} (x ) :') 
 plt.xlabel('x')
 plt.ylabel('P(x)')
